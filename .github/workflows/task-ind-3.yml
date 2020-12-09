@@ -1,0 +1,31 @@
+on: push
+name: I3
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    
+    steps:
+    - name: Checkout the Lab repo
+      uses: actions/checkout@v2
+      with:
+        path: lab
+
+    - name: Checkout js-grader-tools repo
+      uses: actions/checkout@v2
+      with:
+        repository: progivt/js-grader-tools
+        path: tools
+
+    - name: Checkout the test repo
+      uses: actions/checkout@v2
+      with:
+        repository: progivt/js05arr-test
+        token:  ${{ secrets.PRIVATE_ORG_TOKEN }}
+        path: tools/tests
+
+    - name: Run the tests
+      run: |
+        cd ${{ github.workspace }}/tools
+        python3 test_task.py I3
