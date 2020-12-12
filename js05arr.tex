@@ -6,7 +6,7 @@
 \ifxetex
  \usepackage{fontspec}
  \setmainfont[Scale=1.1]{Arno Pro}
- \setmonofont[Scale=.95]{Consolas}
+ \setmonofont[Scale=.95]{Menlo}
  \usepackage{unicode-math}              %% пакет для загрузки шрифтов математического режима 
  \setmathfont{[latinmodern-math.otf]}
  \setmathfont[range=\mathit/{latin,Latin}]{Arno Pro Italic}
@@ -31,7 +31,7 @@
 
 \begin{minted}{js}
 function swapLastAndFirstNeg(A) {
-    let i, n, buf = A.length;
+    let i, buf, n = A.length;
     for (i = 0; i < n; i++) {
        if (A[i] < 0) break;
     }
@@ -55,7 +55,7 @@ function swapLastAndFirstNeg(A) {
 \begin{minted}{js}
 function swappedLastAndFirstNeg(A) {
     let i, firstneg = -1, n = A.length;
-    B = Array(n);
+    let B = new Array(n);
     for (i = 0; i < n-1; i++) {
         if (A[i] < 0 && firstneg === -1) {
             firstneg = i;
@@ -78,7 +78,7 @@ function swappedLastAndFirstNeg(A) {
 \smallskip\noindent\textbf{Решение:}
 \begin{minted}{js}
 function getSwappedLastAndFirstNeg(A) {
-    let i, n = A.length, buf;
+    let i, buf, n = A.length;
     for (i = 0; i < n; i++) {
         if (A[i] < 0) {
             break;
@@ -136,7 +136,7 @@ function findPos(A, p) {
 \\Пример: \texttt{f([7, 10, 15, 22])} равно \texttt{[0,7,17,32]}.
 
 \item 
-Напишите функцию \texttt{f(A)}, принимающую массив действительных чисел, и возвращающую массив из трех чисел: количества отрицательных, положительных и нулевых элементов в указанном порядке. 
+Напишите функцию \texttt{f(A)}, принимающую массив действительных чисел, и возвращающую массив из трех чисел: количества отрицательных, нулевых и положительных элементов в указанном порядке. 
 \\Пример: \texttt{f([9,-5,0,-2,8,-1])} равно \texttt{[3,1,2]}.
 
 \item 
@@ -163,7 +163,6 @@ function findPos(A, p) {
     \\[1.5mm]
     Баллы за задачу ставятся только при соблюдении следующих требований:
 }
-
 
 \medskip
 
