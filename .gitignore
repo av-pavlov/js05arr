@@ -2,7 +2,10 @@
 
 package-lock.json
 
-#latex условий
+#pdf условий
+js05arr.pdf
+
+#вспомогательные latex-файлы условий
 _minted-*
 *.synctex.gz
 *.fls
